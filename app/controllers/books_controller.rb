@@ -28,6 +28,7 @@ class BooksController < ApplicationController
       results = RakutenWebService::Books::Book.search(isbn: @book.isbn)
       @book = Book.new(read(results.first))
       @book.save
+      redirect_to books_path
     end
  end
   

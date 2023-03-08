@@ -1,0 +1,17 @@
+#検索バーを表示
+<%= form_tag(books_search_path, method: :get) do %>
+  <%= text_field_tag :title, @title %>
+  <%= button_tag type: "submit" %>
+<% end %>
+
+#検索結果を表示
+<% if @books %>
+  <% @books.each do |book| %>
+  #ご自身が表示させたいデータを記載してください。
+  #以下のコードではは画像、タイトル、著者名、商品の説明を表示させています。
+    <%= image_tag book.image_url %>
+    <%= book.title %>
+    <%= book.author %>
+    <%= book.item_caption %>    
+  <% end %>
+<% end %>

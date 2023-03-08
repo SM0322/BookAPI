@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  def index
+    @books = Book.all
+  end
   def search
     #ここで空の配列を作ります
     @books = []
@@ -33,16 +36,16 @@ class BooksController < ApplicationController
     url = result["itemUrl"]
     isbn = result["isbn"]
     image_url = result["mediumImageUrl"].gsub('?_ex=120x120', '')
-    book_genre_id = result["booksGenreId"]
-    item_caption = result["itemCaption"]
+    # book_genre_id = result["booksGenreId"]
+    # item_caption = result["itemCaption"]
     {
       title: title,
       author: author,
       url: url,
       isbn: isbn,
       image_url: image_url,
-      book_genre_id: book_genre_id,
-      item_caption: item_caption
+    #   book_genre_id: book_genre_id,
+    #   item_caption: item_caption
     }
   end
 end

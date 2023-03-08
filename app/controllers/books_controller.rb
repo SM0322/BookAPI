@@ -39,13 +39,14 @@ class BooksController < ApplicationController
     url = result['itemUrl']
     isbn = result['isbn']
     image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
-
     {
       title: title,
       url: url,
       isbn: isbn,
       image_url: image_url,
+
     }
 
   end
+  
 end

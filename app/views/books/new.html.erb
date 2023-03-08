@@ -6,7 +6,7 @@
   <% @books.each do |book| %>
     <img src="<%= book.image_url %>" alt="">
     <p><%= book.title %></p>
-    <%= form_tag(books_path) do %>
+    <%= form_tag(books_path, method: :post) do %>
       <%= hidden_field_tag :isbn, book.isbn %>
       <%= submit_tag 'save' %>
     <% end %>
